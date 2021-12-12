@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD STUDENT</title>
+    <link rel="icon" href="college.jfif">
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("{% static "Face/media/bg254.jpeg" %}");
+        }
+        
+        .log {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+        }
+        
+        .form-box {
+            width: 300px;
+            height: 400px;
+            position: relative;
+            margin: 20% auto;
+            background: rgb(235, 252, 252);
+            padding: 5px;
+            border-radius: 15px;
+        }
+        
+        .button-box {
+            width: 220px;
+            margin: 35px auto;
+            position: relative;
+            box-shadow: 0 0 20px 9px #ff61241f;
+            border-radius: 40px;
+            text-align: center;
+        }
+        
+        .form-control {
+            top: 100px;
+            width: 180px;
+            transition: 0.5s;
+            margin-bottom: 15px;
+        }
+        
+        .inputgroup {
+            text-align: center;
+            padding: 3%;
+        }
+        
+        input::placeholder {
+            text-align: center;
+        }
+        
+        p {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        input[type="file"] {
+            margin-left: 20%;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: -40px;
+            text-decoration: linen;
+            color: antiquewhite;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WELCOME</h1>
+    <div class="log">
+        <div class="form-box">
+            <div class="button-box">
+                <p>ADD STUDENT DETAILS</p>
+            </div>
+            <form method="POST" class="inputgroup" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" class="form-control" name="name" id="name" placeholder="Enter Student's name"><br>
+                <input type="text" class="form-control" name="roll" id="roll" placeholder="Enter Roll number"><br>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Enter Parent's email id"><br>
+
+                <p> Please capture Front Face </p>
+
+                <input type="file" name="image1" id="image1" capture="camera"><br>
+
+                <input type="submit" name="" id=""><br>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

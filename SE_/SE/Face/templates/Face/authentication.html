@@ -1,0 +1,24 @@
+{% extends 'Face/base.html'%}
+
+{% block body %}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+   
+        <h2>Enter your credentials !!!</h2>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Enter Your username" ><br>
+        <input type="password" name="pass" id="pass" placeholder="Enter Your Password" class="form-control" ><br>
+        <input type="checkbox" onclick="myFunction()">Show Password<br>
+        <input type="submit" name="" id="">
+        <script>
+            function myFunction() {
+                var x = document.getElementById("pass");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+</form>
+
+{% endblock %}

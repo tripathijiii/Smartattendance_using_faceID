@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT DETAILS</title>
+    <link rel="icon" href="stud-det.png">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-image: url("{% static "Face/media/bg.jpeg" %}");
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .topnav {
+            overflow: hidden;
+            width: 100%;
+        }
+        /* Style the links inside the navigation bar */
+        
+        .topnav input[type=text] {
+            float: right;
+            padding: 1px;
+            border: none;
+            margin-top: 8px;
+            margin-right: 16px;
+            font-size: 17px;
+        }
+        
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: rgb(255, 255, 255);
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .topnav .search-container button:hover {
+            background: rgb(158, 43, 43);
+        }
+        /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+        
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                margin-top: 0.5%;
+                width: 100%;
+                padding: 4px;
+                background-color: rgb(248, 242, 242);
+            }
+            .topnav input[type=text] {
+                border: 1.5px solid rgb(0, 0, 0);
+            }
+        }
+        
+        button {
+            margin-top: 2.5px;
+            margin-left: 170px;
+        }
+        
+        h3 {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 60px;
+        }
+        
+        h4 {
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" placeholder="Search via Roll number" name="search">
+            <button type="submit">submit</button>
+        </form>
+        {% if count %}
+            <h3>NO. of students below 50% attendance : {{count}}</h3>
+        {% endif %}
+        {% for key,value in details.items %}
+        <h4>{{key}}  -  {{value.0}}</h4>
+        <h4>parents email - {{value.1}} </h4><h4>  Attendance% = {{value.2}}</h4>
+        <br><br>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

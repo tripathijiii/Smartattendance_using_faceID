@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEFAULTER</title>
+    <link rel="icon" href="defaulter.jpg">
+
+    <style>
+        body {
+            background-image: url("{% static "Face/media/bg.jpeg" %}");
+        }
+        
+        h2 {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 30px;
+        }
+        
+        input::placeholder {
+            text-align: center;
+        }
+        
+        input[type="number"] {
+            width: 200px;
+            padding: 10px 30px;
+            margin-bottom: 15px;
+            font-style: italic;
+            border-radius: 10px;
+        }
+        
+        .place {
+            text-align: center;
+            width: 100%;
+        }
+        
+        .place2 {
+            margin-top: 10px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>ENTER THE PERCENTAGE BELOW WHICH MAIL IS TO BE SENT</h2>
+        <div class="place">
+            <input type="number" class="form-control" name="percentage" id="percentage" placeholder="Enter defaulter percentage"><br>
+        </div>
+        <div class="place2">
+            <input type="submit" name="" id=""><br>
+        </div>
+    </form>
+
+</body>
+
+</html>

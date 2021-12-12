@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" href="{% static "Face/media/logo1.jpg" %}">
+
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            background-image: url(/media/tiet.jpeg);
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            backdrop-filter: blur(10px);
+        }
+        
+        img {
+            padding-top: 0;
+            margin-top: 0%;
+            margin-left: 25px;
+            width: 150px;
+            border-radius: 130px;
+        }
+        h1{
+            margin-top: -3%;
+            padding: 0;
+            margin-bottom: 0;
+        }
+        #main-holder {
+            width: 60%;
+            height: 110%;
+            display: grid;
+            margin-top: -5%;
+            justify-items: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 7px;
+            box-shadow: 0px 0px 5px 2px black;
+        }
+        
+        #login-error-msg-holder {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+        
+        #login-form {
+            align-self: flex-start;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+        }
+        
+        .login-form-field::placeholder {
+            color: #3a3a3a;
+        }
+        
+        .login-form-field {
+            border: none;
+            border-bottom: 1px solid #3a3a3a;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            outline: none;
+            padding: 0px 0px 5px 5px;
+        }
+        
+        #login-form-submit {
+            width: 100%;
+            padding: 7px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            background-color: #3a3a3a;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .user img {
+            float: left;
+            margin-top: 0px;
+            margin-left: 10px;
+            width: 20px;
+            box-sizing: border-box;
+        }
+        
+        .pass img {
+            float: left;
+            margin-top: 0px;
+            margin-left: 10px;
+            width: 20px;
+            box-sizing: border-box;
+        }
+        #login-header{
+            margin-bottom: 0%;    
+        }
+        .rem {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style=" font-family: 'Times New Roman', Times, serif; font-size: 30px; text-align: center; ">
+      THAPAR INSTITUTE OF ENGINEERING & TECHNOLOGY    
+    </h1>
+    <main id="main-holder">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+          <h2 id="login-header" style="text-align: center;">ADMIN SIGN IN</h2>
+          <div>
+              <img src="{% static "Face/media/loginpage.png" %}">
+          </div>
+          <form id="login-form">
+              <div class="user">
+                  <img src="{% static "Face/media/user.png" %}">
+                  <input type="text" name="name" id="name" class="login-form-field" placeholder="Username">
+              </div>
+              <div class="pass">
+                  <img src="{% static "Face/media/pass.jpg" %}">
+                  <input type="password" name="pass" id="pass" class="login-form-field" placeholder="Password">
+              </div>
+              <div class="rem">
+                  <input type="checkbox" name="" id="">Remember Me
+              </div>
+              <input type="submit" value="Login" id="login-form-submit">
+        </form>
+    </main>
+</body>
+
+</html>

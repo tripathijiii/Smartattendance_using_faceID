@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOICES</title>
+
+    <style>
+        body {
+            background-color: linen;
+        }
+        
+        a {
+            color: black;
+        }
+        
+        .logo img {
+            float: left;
+            margin-top: 0px;
+            margin-left: 10px;
+            width: 16px;
+            box-sizing: border-box;
+        }
+        
+        h2 {
+            text-align: center;
+            font-weight: bolder;
+            color: darkred;
+        }
+        
+        h1 {
+            text-align: center;
+            color: rgb(192, 9, 9);
+        }
+        
+        .logo {
+            margin-top: 50px;
+        }
+        
+        h3:hover {
+            color: mediumblue;
+            position: relative;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>WELCOME TO THAPAR INSTITUE OF ENGINEERING & TECHNOLOGY</h1>
+    <h2>PLEASE MAKE YOUR CHOICE</h2>
+    <div class="logo">
+        <img src="{% static "Face/media/link.png" %}">
+        <a href="{% url 'newstudent' %}">
+            <h3> ADD A NEW STUDENT </h3>
+        </a><br>
+    </div>
+    <div class="logo">
+        <img src="{% static "Face/media/link.png" %}">
+        <a href="{% url 'details' %}">
+            <h3> STUDENT DETAILS </h3>
+        </a><br>
+    </div>
+    <div class="logo">
+        <img src="{% static "Face/media/link.png" %}">
+        <a href="{% url 'defaulter' %}">
+            <h3> AUTOMATIC MAILING TO ALL STUDENTS BELOW SPECIFIED ATTENDANCE</h3>
+        </a>
+    </div>
+</body>
+
+</html>
